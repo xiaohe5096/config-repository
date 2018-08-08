@@ -28,3 +28,8 @@ server:
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
+#自定义测试
+my:
+  test:
+    name: wanghaibo
+    type: aaaa
