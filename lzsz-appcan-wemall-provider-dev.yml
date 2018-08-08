@@ -32,4 +32,4 @@ mybatis:
 my:
   test:
     name: wanghaibo
-    type: bbbb
+    type: cccc
