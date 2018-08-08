@@ -1,4 +1,10 @@
 spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: wanghaibo
+    password: whb.123
+    virtual-host: /lzsz
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     username: root
