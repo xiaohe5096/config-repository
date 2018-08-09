@@ -30,10 +30,22 @@ spring:
           merge-sql: true
 server:
   port: 8000
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh,info,health
 #mybatis配置
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
+info:
+  build:
+    name: ${project.name}
+    description: ${project.description}
+    groupId: ${project.groupId}
+    artifact: ${project.artifactId}
+    version: ${project.version}
 #自定义测试
 my:
   test:
