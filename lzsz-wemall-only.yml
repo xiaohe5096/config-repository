@@ -51,4 +51,4 @@ my:
   test:
     name: wanghaibo
     type: only-333
-    password: '{cipher}77dbd2e301a36a95a103c0008a7eb1987ba8d3c433abbe45cbe35fa3115db5ef'
+    password: {cipher}77dbd2e301a36a95a103c0008a7eb1987ba8d3c433abbe45cbe35fa3115db5ef
