@@ -47,7 +47,7 @@ my:
   test:
     name: wanghaibo
     type: only-4444
-    password: dev1111
+    password: dev2222
 ---
 spring:
   profiles: only
