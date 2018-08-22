@@ -31,7 +31,7 @@ my:
   test:
     name: wanghaibo
     type: only-444
-    password: 2222
+    password: 333
 ---
 spring:
   profiles: dev
