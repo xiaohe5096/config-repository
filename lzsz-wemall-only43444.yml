@@ -1,0 +1,59 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh,info,health,bus-refresh
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+pagehelper:
+  helper-dialect: postgresql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+
+---
+spring:
+  profiles: only
+  datasource:
+    driver-class-name: com.edb.Driver
+    url: jdbc:edb://rm-2ze212s303330lq0g481.ppas.rds.aliyuncs.com:3433/lzsz_only_db
+    username: release_only
+    password: '{cipher}AQAjwyVXfk/bX9QxF3eoaCVtf38eUg23VFHofMGOROLt8SBfy9gwOo5smkHhXCzPVZ/QmD87BO8dojWKPINKiZxu38ACFJE4DOztSKKRd9u0vjQtLnYYPJJK79Hg0GMETFlvTEOmy1c3GD858FhwBJGqEVD2nHzOg+//TMVase163hDYTHoKnE0zxzlj5SkK+gZLKy7NpFhWVwz/ZPTYsp2dmTVn9nckTsvkle6lQ2vd4djVTNxxtOtka9XzXbQTNXoUUoig/+KtqBn5GvEKLl1zkYdAHk62mlwNkKhs0Ytvn/bt2WFvbokO1if3/BeFMj9betmeQxfiYjSmqJP5oCnRXqJ4HyLgInbWmER5DjOZmjJZY9ov/bwydj1qVeGVdA0='
+    druid:
+      max-active: 20
+      min-idle: 3
+      max-wait: 10000
+      validation-query: SELECT 'x'
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        login-username: root
+        login-password: root
+      filter:
+        stat:
+          log-slow-sql: true
+          slow-sql-millis: 5000
+          merge-sql: true
+  rabbitmq:
+    host: 172.17.10.9
+    port: 5672
+    username: config
+    password: '{cipher}AQCIqZHd302hYxD0EUBkbpuGOjmiYsqm0KssVHfgjsD9xBMTRxUslXhY6Vp15Qy3k+AEFiTx+a4OvU2a30GwhcPcsWryAWlERpAFr/vVYWOB48THLAkii1ns1KPNDYK+GAEVx6mhxYpaoydp/AIuU19N3qVYBwAQKN7L94kGFsUen45SR3GiO1wDVzXDw+f3sU1CRu+gVA1JZL1euAnIq0Nyls92RIMCzMs4OMYLdb2oS1qt4/pGUN6mDG1h1sD5fBTIHJIkYfHuLRpSIhcqmsKKO8PWSckrmgYRSbcb5gi6FzZtdi7+yZki2l2x+Kiy8mVfVRyVn5jnX4SZKKpPJCS3AeMtMc+683yTDQT9E6jDNaq8YpYsrfj4e+fXQV4qpeI='
+    virtual-host: /lzsz
+my:
+  test:
+    name: wanghaibo
+    type: only-444
+    password: only
+
+---
+spring:
+  profiles: aaa
+my:
+  test:
+    name: wanghaibo
+    type: only-444
+    password: aaa

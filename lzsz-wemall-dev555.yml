@@ -1,0 +1,48 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh,info,health,bus-refresh
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+pagehelper:
+  helper-dialect: postgresql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+spring:
+#  profiles: dev
+  datasource:
+    driver-class-name: com.edb.Driver
+    url: jdbc:edb://rm-2zea76earpy9sr2f6o.ppas.rds.aliyuncs.com:3432/develop_only_db
+    username: develop_only
+    password: develop_only
+    druid:
+      max-active: 20
+      min-idle: 3
+      max-wait: 10000
+      validation-query: SELECT 'x'
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        login-username: root
+        login-password: root
+      filter:
+        stat:
+          log-slow-sql: true
+          slow-sql-millis: 5000
+          merge-sql: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: wanghaibo
+    password: whb.123
+    virtual-host: /lzsz
+my:
+  test:
+    name: wanghaibo
+    type: only-444
+    password: dev
