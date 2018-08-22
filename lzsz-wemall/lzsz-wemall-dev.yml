@@ -1,0 +1,82 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh,info,health
+info:
+  build:
+    name: ${project.name}
+    description: ${project.description}
+    groupId: ${project.groupId}
+    artifact: ${project.artifactId}
+    version: ${project.version}
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+pagehelper:
+  helper-dialect: postgresql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+
+my:
+  test:
+    name: wanghaibo
+    type: only-444
+    password: 111111111
+---
+spring:
+  profiles: dev
+  datasource:
+    driver-class-name: com.edb.Driver
+    url: jdbc:edb://rm-2zea76earpy9sr2f6o.ppas.rds.aliyuncs.com:3432/develop_only_db
+    username: develop_only
+    password: develop_only
+    druid:
+      max-active: 20
+      min-idle: 3
+      max-wait: 10000
+      validation-query: SELECT 'x'
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        login-username: root
+        login-password: root
+      filter:
+        stat:
+          log-slow-sql: true
+          slow-sql-millis: 5000
+          merge-sql: true
+---
+spring:
+  profiles: pro
+  rabbitmq:
+    host: 172.17.10.9
+    port: 5672
+    username: config
+    password: '{cipher}AQCIqZHd302hYxD0EUBkbpuGOjmiYsqm0KssVHfgjsD9xBMTRxUslXhY6Vp15Qy3k+AEFiTx+a4OvU2a30GwhcPcsWryAWlERpAFr/vVYWOB48THLAkii1ns1KPNDYK+GAEVx6mhxYpaoydp/AIuU19N3qVYBwAQKN7L94kGFsUen45SR3GiO1wDVzXDw+f3sU1CRu+gVA1JZL1euAnIq0Nyls92RIMCzMs4OMYLdb2oS1qt4/pGUN6mDG1h1sD5fBTIHJIkYfHuLRpSIhcqmsKKO8PWSckrmgYRSbcb5gi6FzZtdi7+yZki2l2x+Kiy8mVfVRyVn5jnX4SZKKpPJCS3AeMtMc+683yTDQT9E6jDNaq8YpYsrfj4e+fXQV4qpeI='
+    virtual-host: /lzsz
+  datasource:
+    druid:
+      driver-class-name: com.edb.Driver
+      url: jdbc:edb://rm-2zea76earpy9sr2f6o.ppas.rds.aliyuncs.com:3432/develop_jackjones_db
+      username: develop_only
+      password: develop_only
+      max-active: 20
+      min-idle: 3
+      max-wait: 10000
+      validation-query: SELECT 'x'
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        login-username: root
+        login-password: root
+      filter:
+        stat:
+          log-slow-sql: true
+          slow-sql-millis: 5000
+          merge-sql: true
