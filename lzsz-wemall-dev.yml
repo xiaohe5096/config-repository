@@ -1,11 +1,3 @@
-spring:
-  jpa:
-    hibernate:
-      ddl-auto: none
-    show-sql: true
-  jackson:
-    serialization:
-      indent_output: true
 management:
   endpoints:
     web:
@@ -35,12 +27,6 @@ my:
 ---
 spring:
   profiles: dev
-  rabbitmq:
-    host: localhost
-    port: 5672
-    username: wanghaibo
-    password: whb.123
-    virtual-host: /lzsz
   datasource:
     driver-class-name: com.edb.Driver
     url: jdbc:edb://rm-2zea76earpy9sr2f6o.ppas.rds.aliyuncs.com:3432/develop_only_db
