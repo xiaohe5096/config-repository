@@ -1,0 +1,55 @@
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: wanghaibo
+    password: whb.123
+    virtual-host: /lzsz
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password:
+    url: jdbc:mysql://127.0.0.1:3306/lzsz_wemall?characterEncoding=utf-8&useSSL=false
+    druid:
+      max-active: 20
+      min-idle: 3
+      max-wait: 10000
+      validation-query: SELECT 'x'
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+#      监控配置
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        login-username: root
+        login-password: root
+      filter:
+        stat:
+          log-slow-sql: true
+          slow-sql-millis: 5000
+          merge-sql: true
+server:
+  port: 8000
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh,info,health
+#mybatis配置
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+info:
+  build:
+    name: ${project.name}
+    description: ${project.description}
+    groupId: ${project.groupId}
+    artifact: ${project.artifactId}
+    version: ${project.version}
+#自定义测试
+my:
+  test:
+    name: wanghaibo
+    type: only-444
+    #password: "{cipher}77dbd2e301a36a95a103c0008a7eb1987ba8d3c433abbe45cbe35fa3115db5ef"
+    password: '{cipher}AQAQEuLw5rVpHXHSdXuQ+afXens3gBFg53ccMacpM5Nj+uow3WFHcjfSM0IJlH/54vWM7GTiVfpb5HxkTCQc5LNZRl0bqbuG8psWOUnD5CntO09u1cTmoCkucV4jGJHxYSYu6se6ADi0hASWvIpVsnyn4Aq8Zju230vmcXpPj9KzZ3xTU7qrWaKC7X0aldjqAAF+pw+xzD6gAjZT/65XcRJL1l1Snva+aJvcWCtykJ1Y/2a3a7QOjOLn8aPcu2IiqWfRGFIGvUAimE6G4xScJyRq7ZdzF1z0cMksBOztoF6io7JcwtpsWjCEM1K36BkWrFEFNHdRKVTgqfHcQCy6wsnUzoLExq3GgveW6Ww2iedfnvhmcS3qx/RZG7zvhvYSCUM='
