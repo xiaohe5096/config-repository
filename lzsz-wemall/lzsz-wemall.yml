@@ -6,6 +6,8 @@ management:
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
+  mapper-locations: classpath:com/lzsz/wemall/mapper/xml/*.Mapper.xml
+  type-aliases-package: com.lzsz.wemall.entity
 pagehelper:
   helper-dialect: postgresql
   reasonable: true
