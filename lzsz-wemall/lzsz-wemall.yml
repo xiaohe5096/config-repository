@@ -6,14 +6,46 @@ management:
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
-  mapper-locations: classpath:com/lzsz/wemall/mapper/xml/*.Mapper.xml
+  mapper-locations: 'classpath:com/lzsz/wemall/mapper/xml/*Mapper.xml'
   type-aliases-package: com.lzsz.wemall.entity
 pagehelper:
   helper-dialect: postgresql
   reasonable: true
   support-methods-arguments: true
   params: count=countSql
-
+swagger2:
+  package_name: com.lzsz.wemall.controller
+  path_selector: '/.*'
+  api_version : 1.0
+  group_name: 'LZSZ-WEMALL-API'
+  api_info:
+    title: WeMall Manage Restful Apis
+    description: 微商城接口文档Api
+    termsServiceUrl: https://raw.githubusercontent.com/bygui86/spring-swagger/master/terms-of-service.txt
+    contactName: 王海波
+    contactUrl: https://www.bestseller.com.cn/
+    contactEmail: wanghaibo@bestseller.com.cn
+    license: Apache 2.0
+    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0
+spring:
+  security:
+    user:
+      name: admin
+      password: secret
+      roles: ADMIN
+logging:
+  file: './logs/wemall.log'
+  level:
+    root: info
+    com.lzsz.wemall.mapper: debug
+    org.springframework.web: debug
+info:
+  build:
+    name: lzsz-wemall
+    description: 微商城管理
+    groupId: com.lzsz
+    artifact: lzsz-wemall
+    version: 0.0.1-SNAPSHOT
 ---
 spring:
   profiles: dev
@@ -45,11 +77,6 @@ spring:
     username: wanghaibo
     password: whb.123
     virtual-host: /lzsz
-my:
-  test:
-    name: wanghaibo
-    type: only-4444
-    password: dev2222
 ---
 spring:
   profiles: only
@@ -81,8 +108,3 @@ spring:
     username: config
     password: '{cipher}AQCIqZHd302hYxD0EUBkbpuGOjmiYsqm0KssVHfgjsD9xBMTRxUslXhY6Vp15Qy3k+AEFiTx+a4OvU2a30GwhcPcsWryAWlERpAFr/vVYWOB48THLAkii1ns1KPNDYK+GAEVx6mhxYpaoydp/AIuU19N3qVYBwAQKN7L94kGFsUen45SR3GiO1wDVzXDw+f3sU1CRu+gVA1JZL1euAnIq0Nyls92RIMCzMs4OMYLdb2oS1qt4/pGUN6mDG1h1sD5fBTIHJIkYfHuLRpSIhcqmsKKO8PWSckrmgYRSbcb5gi6FzZtdi7+yZki2l2x+Kiy8mVfVRyVn5jnX4SZKKpPJCS3AeMtMc+683yTDQT9E6jDNaq8YpYsrfj4e+fXQV4qpeI='
     virtual-host: /lzsz
-my:
-  test:
-    name: wanghaibo
-    type: only-444
-    password: only
